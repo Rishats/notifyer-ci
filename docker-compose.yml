@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  app:
+    container_name: notifyer-ci
+    build: ./
+    environment:
+      NOTIFYER_TELEGRAM_BOT_TOKEN: "your_token"
+      CI_PROJECT_URL: ""
+      CI_PIPELINE_ID: ""
+      CI_COMMIT_REF_SLUG: ""
+      NOTIFYER_TELEGRAM_CHAT_ID:
+      NOTIFYER_TEXT: "Release ready!"
+    command: ./notifyer release ready
