@@ -1,4 +1,4 @@
-## Latest Docker image with Newman for GitLab Continuous Integration Pipeline
+## Latest Docker image with Notifyer-ci for GitLab Continuous Integration Pipeline
 
 ### Description
 This image runs Notifyer-1.0.0 on Golang 1.14.6
