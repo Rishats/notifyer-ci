@@ -4,10 +4,11 @@ services:
     container_name: notifyer-ci
     build: ./
     environment:
-      NOTIFYER_TELEGRAM_BOT_TOKEN: "your_token"
+      NOTIFYER_TELEGRAM_BOT_TOKEN: ""
       CI_PROJECT_URL: ""
       CI_PIPELINE_ID: ""
       CI_COMMIT_REF_SLUG: ""
       NOTIFYER_TELEGRAM_CHAT_ID:
       NOTIFYER_TEXT: "Release ready!"
-    command: notifyer -t "TEXT" release ready
+      NOTIFYER_TELEGRAM_PARSE_MODE: "HTML"
+    command: notifyer --text "<pre>Release done</pre><pre>pre-formatted</pre>" --telegram_parse_mode "HTML" deploy done

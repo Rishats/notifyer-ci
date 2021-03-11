@@ -9,15 +9,16 @@ import (
 )
 
 // sendTextToTelegramChat sends a text message to the Telegram chat identified by its chat Id
-func sendTextToTelegramChat(chatId int, text string, telegramBotToken string, ) (string, error) {
+func sendTextToTelegramChat(chatId int, text string, telegramBotToken string, telegramParseMode string) (string, error) {
 
 	log.Printf("Sending %s to chat_id: %d", text, chatId)
 	var telegramApi string = "https://api.telegram.org/bot" + telegramBotToken + "/sendMessage"
 	response, err := http.PostForm(
 		telegramApi,
 		url.Values{
-			"chat_id": {strconv.Itoa(chatId)},
-			"text":    {text},
+			"chat_id":    {strconv.Itoa(chatId)},
+			"text":       {text},
+			"parse_mode": {telegramParseMode},
 		})
 
 	if err != nil {

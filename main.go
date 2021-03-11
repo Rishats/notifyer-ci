@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	var telegramBotToken, ciProjectUrl, ciPipelineId, ciCommitSlug, text string
+	var telegramBotToken, telegramParseMode, ciProjectUrl, ciPipelineId, ciCommitSlug, text string
 	var telegramChatId int
 
 	app := &cli.App{
@@ -53,6 +53,14 @@ func main() {
 				Destination: &telegramChatId,
 			},
 			&cli.StringFlag{
+				Name:        "telegram_parse_mode",
+				Aliases:     []string{"tpm"},
+				Usage:       "TELEGRAM_PARSE_MODE - Telegram",
+				EnvVars:     []string{"NOTIFYER_TELEGRAM_PARSE_MODE"},
+				DefaultText: "HTML",
+				Destination: &telegramParseMode,
+			},
+			&cli.StringFlag{
 				Name:        "text",
 				Aliases:     []string{"t"},
 				Usage:       "TEXT",
@@ -71,7 +79,7 @@ func main() {
 						Usage: "release ready",
 						Action: func(c *cli.Context) error {
 							fmt.Println("[Notifyer] Release ready")
-							sendTextToTelegramChat(telegramChatId, text, telegramBotToken)
+							sendTextToTelegramChat(telegramChatId, text, telegramBotToken, telegramParseMode)
 							return nil
 						},
 					},
@@ -87,7 +95,7 @@ func main() {
 						Usage: "deploy done",
 						Action: func(c *cli.Context) error {
 							fmt.Println("[Notifyer] Deploy done")
-							sendTextToTelegramChat(telegramChatId, text, telegramBotToken)
+							sendTextToTelegramChat(telegramChatId, text, telegramBotToken, telegramParseMode)
 							return nil
 						},
 					},
