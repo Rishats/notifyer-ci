@@ -62,7 +62,7 @@ jobs:
         run: go mod download
 
       - name: Build
-        run: go build -o postgresql-backup
+        run: go build -o notifyer
 
       - name: Upload dir and bin as artifact
         uses: actions/upload-artifact@v2
@@ -97,7 +97,7 @@ jobs:
           args: install cygwin
 
       - name: Build
-        run: go build -o postgresql-backup.exe
+        run: go build -o notifyer.exe
 
       - name: Upload dir and bin as artifact
         uses: actions/upload-artifact@v2
