@@ -13,58 +13,58 @@ func main() {
 	var telegramChatId int
 
 	app := &cli.App{
-		Name: "notifyer",
-		Version: "v1.0.0",
-		Flags: []cli.Flag {
+		Name:    "notifyer",
+		Version: "v3.0.0",
+		Flags: []cli.Flag{
 			&cli.StringFlag{
-				Name:    "telegram_bot_token",
+				Name:        "telegram_bot_token",
 				DefaultText: "YOUR_TELEGRAM_BOT_TOKEN",
-				Aliases: []string{"tbt"},
-				Usage:   "TELEGRAM_BOT_TOKEN",
-				EnvVars: []string{"NOTIFYER_TELEGRAM_BOT_TOKEN"},
+				Aliases:     []string{"tbt"},
+				Usage:       "TELEGRAM_BOT_TOKEN",
+				EnvVars:     []string{"NOTIFYER_TELEGRAM_BOT_TOKEN"},
 				Destination: &telegramBotToken,
 			},
 			&cli.StringFlag{
-				Name:    "ci_project_url",
-				Aliases: []string{"cpu"},
-				Usage:   "CI_PROJECT_URL - GitLab CI",
-				EnvVars: []string{"CI_PROJECT_URL"},
+				Name:        "ci_project_url",
+				Aliases:     []string{"cpu"},
+				Usage:       "CI_PROJECT_URL - GitLab CI",
+				EnvVars:     []string{"CI_PROJECT_URL"},
 				Destination: &ciProjectUrl,
 			},
 			&cli.StringFlag{
-				Name:    "ci_pipeline_id",
-				Aliases: []string{"cpi"},
-				Usage:   "CI_PIPELINE_ID - GitLab CI",
-				EnvVars: []string{"CI_PIPELINE_ID"},
+				Name:        "ci_pipeline_id",
+				Aliases:     []string{"cpi"},
+				Usage:       "CI_PIPELINE_ID - GitLab CI",
+				EnvVars:     []string{"CI_PIPELINE_ID"},
 				Destination: &ciPipelineId,
 			},
 			&cli.StringFlag{
-				Name:    "ci_commit_slug",
-				Aliases: []string{"gcs"},
-				Usage:   "CI_COMMIT_REF_SLUG - GitLab CI",
-				EnvVars: []string{"CI_COMMIT_REF_SLUG"},
+				Name:        "ci_commit_slug",
+				Aliases:     []string{"gcs"},
+				Usage:       "CI_COMMIT_REF_SLUG - GitLab CI",
+				EnvVars:     []string{"CI_COMMIT_REF_SLUG"},
 				Destination: &ciCommitSlug,
 			},
 			&cli.IntFlag{
-				Name:    "telegram_chat_id",
-				Aliases: []string{"tci"},
-				Usage:   "TELEGRAM_CHAT_ID - Telegram",
-				EnvVars: []string{"NOTIFYER_TELEGRAM_CHAT_ID"},
+				Name:        "telegram_chat_id",
+				Aliases:     []string{"tci"},
+				Usage:       "TELEGRAM_CHAT_ID - Telegram",
+				EnvVars:     []string{"NOTIFYER_TELEGRAM_CHAT_ID"},
 				Destination: &telegramChatId,
 			},
 			&cli.StringFlag{
-				Name:    "text",
-				Aliases: []string{"t"},
-				Usage:   "TEXT",
-				EnvVars: []string{"NOTIFYER_TEXT"},
+				Name:        "text",
+				Aliases:     []string{"t"},
+				Usage:       "TEXT",
+				EnvVars:     []string{"NOTIFYER_TEXT"},
 				Destination: &text,
 			},
 		},
 		Commands: []*cli.Command{
 			{
-				Name:        "release",
-				Aliases:     []string{"r"},
-				Usage:       "Release [ready]",
+				Name:    "release",
+				Aliases: []string{"r"},
+				Usage:   "Release [ready]",
 				Subcommands: []*cli.Command{
 					{
 						Name:  "ready",
@@ -78,9 +78,9 @@ func main() {
 				},
 			},
 			{
-				Name:        "deploy",
-				Aliases:     []string{"d"},
-				Usage:       "Deploy [done]",
+				Name:    "deploy",
+				Aliases: []string{"d"},
+				Usage:   "Deploy [done]",
 				Subcommands: []*cli.Command{
 					{
 						Name:  "done",

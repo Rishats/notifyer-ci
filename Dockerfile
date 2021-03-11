@@ -17,5 +17,7 @@ RUN chmod +x notifyer
 FROM alpine:latest AS release
 WORKDIR /app/
 COPY --from=build-env /app/notifyer .
+ENV WORKDIR "/app/"
+ENV PATH "${WORKDIR}:${PATH}"
 
 CMD ["notifyer", "--version"]
