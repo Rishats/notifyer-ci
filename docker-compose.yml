@@ -10,4 +10,4 @@ services:
       CI_COMMIT_REF_SLUG: ""
       NOTIFYER_TELEGRAM_CHAT_ID:
       NOTIFYER_TEXT: "Release ready!"
-    command: ./notifyer release ready
+    command: ./notifyer -t "TEXT" release ready

@@ -86,7 +86,8 @@ func main() {
 						Name:  "done",
 						Usage: "deploy done",
 						Action: func(c *cli.Context) error {
-							fmt.Println("deploy done: ", c.Args().First())
+							fmt.Println("[Notifyer] Deploy done")
+							sendTextToTelegramChat(telegramChatId, text, telegramBotToken)
 							return nil
 						},
 					},
